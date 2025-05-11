@@ -13,6 +13,8 @@
   <p align="center">
     Automatiza la extracción desde archivos PDF de artículos científicos y su registro en una base de datos de Notion mediante GPT.
     <br />
+    <img src="logo.png" alt="Logo" height="180">
+    <br />
     <a href="https://github.com/andres-merino/notion-article-uploader/issues">Reportar un Problema</a>
   </p>
 </div>
@@ -66,7 +68,7 @@ USUARIO_AUTORIZADO = "..."  # Tu ID personal de Telegram
 
 ```bash
 python notion_uploader.py ruta/al/archivo.pdf
-````
+```
 
 ### Uso desde Telegram
 

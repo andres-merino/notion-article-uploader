@@ -48,7 +48,7 @@ El contenido se registra como:
 ### Contenido del Repositorio
 
 - [`notion_uploader.ipynb`](/notion_uploader.ipynb): Notebook interactivo para desarrollo y pruebas.
-- [`notion_uploader.py`](/notion_uploader.py): Script de línea de comandos para uso desde terminal.
+- [`notion_article_uploader.py`](notion_article_uploader.py): Script de línea de comandos para uso desde terminal.
 - [`bot_uploader.py`](/bot_uploader.py): Bot de Telegram para enviar archivos PDF y registrarlos directamente en Notion.
 - [`requirements.txt`](/requirements.txt): Lista de dependencias necesarias para ejecutar el proyecto.
 
@@ -67,7 +67,7 @@ USUARIO_AUTORIZADO = "..."  # Tu ID personal de Telegram
 ### Uso desde terminal
 
 ```bash
-python notion_uploader.py ruta/al/archivo.pdf
+python notion_article_uploader.py ruta/al/archivo.pdf
 ```
 
 ### Uso desde Telegram

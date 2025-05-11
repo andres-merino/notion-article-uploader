@@ -20,7 +20,9 @@
 <!-- Cuerpo -->
 ## Sobre el Proyecto
 
-Este proyecto permite automatizar el análisis de artículos científicos en formato PDF para extraer metadatos e ideas principales mediante GPT y registrar la información estructurada directamente en una base de datos de Notion.
+Este proyecto permite automatizar el análisis de artículos científicos en formato PDF para extraer metadatos, ideas principales y citas mediante GPT, y registrar la información estructurada directamente en una base de datos de Notion. 
+
+Ofrece dos formas de uso: desde un notebook de Jupyter o como script ejecutable desde terminal.
 
 ### Construido con
 
@@ -29,23 +31,28 @@ Este proyecto permite automatizar el análisis de artículos científicos en for
 ![OpenAI Badge](https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=fff&style=for-the-badge) 
 ![Notion Badge](https://img.shields.io/badge/Notion-000000?logo=notion&logoColor=fff&style=for-the-badge)
 
-
 ## Descripción
 
-El sistema monitorea una carpeta local en busca de nuevos archivos PDF. Al detectar uno nuevo, lo procesa extrayendo texto, envía el contenido a GPT para obtener título, autor, revista, año, tema, subtema e ideas principales, y registra automáticamente los resultados en Notion.
+El sistema permite leer un archivo PDF, extraer su contenido textual, enviarlo a GPT para generar un resumen estructurado en formato JSON (título, autor, revista, año, tema, subtema, ideas principales y citas) y registrar toda esa información como una nueva entrada en Notion. 
+
+El contenido se puede registrar como:
+- Propiedades estructuradas (título, año, etc.)
+- Contenido de página con ideas principales y citas textuales
 
 ### Contenido del Repositorio
 
-- [`notion_uploader.ipynb`](/notion_uploader.ipynb): Notebook para desarrollo y pruebas.
-- [`notion_uploader.py`](/notion_uploader.py): Script principal para monitoreo, extracción y carga en Notion.
-
+- [`notion_uploader.ipynb`](/notion_uploader.ipynb): Notebook interactivo para desarrollo y pruebas del flujo.
+- [`notion_uploader.py`](/notion_uploader.py): Script de línea de comandos. Ejecutable con:  
+```bash
+  python notion_uploader.py ruta/al/archivo.pdf
+```
 
 ## Créditos
 
-**Andrés Merino** (aemerinot@gmail.com) 
+**Andrés Merino** ([aemerinot@gmail.com](mailto:aemerinot@gmail.com))
 
-- Docente-Investigador en Pontificia Universidad Católica del Ecuador  
-- Fundador del [Proyecto Alephsub0](https://www.alephsub0.org/about/)
+* Docente-Investigador en Pontificia Universidad Católica del Ecuador
+* Fundador del [Proyecto Alephsub0](https://www.alephsub0.org/about/)
 
 [![LinkedIn][linkedin-shield]][linkedin-url-aemt]
 
@@ -56,6 +63,7 @@ Distribuido bajo la licencia MIT.
 [![MIT License][license-shield]][license-url]
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/andres-merino/notion-article-uploader.svg?style=for-the-badge
 [contributors-url]: https://github.com/andres-merino/notion-article-uploader/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/andres-merino/notion-article-uploader.svg?style=for-the-badge
@@ -67,4 +75,4 @@ Distribuido bajo la licencia MIT.
 [license-shield]: https://img.shields.io/github/license/andres-merino/notion-article-uploader.svg?style=for-the-badge
 [license-url]: https://es.wikipedia.org/wiki/Licencia_MIT
 [linkedin-shield]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
-[linkedin-url-aemt]: https://www.linkedin.com/in/andrés-merino-010
+[linkedin-url-aemt]: https://www.linkedin.com/in/andrés-merino-010a9b12b/

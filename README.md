@@ -20,9 +20,12 @@
 <!-- Cuerpo -->
 ## Sobre el Proyecto
 
-Este proyecto permite automatizar el análisis de artículos científicos en formato PDF para extraer metadatos, ideas principales y citas mediante GPT, y registrar la información estructurada directamente en una base de datos de Notion. 
+Este proyecto permite automatizar el análisis de artículos científicos en formato PDF para extraer metadatos, ideas principales y citas mediante GPT, y registrar la información estructurada directamente en una base de datos de Notion.
 
-Ofrece dos formas de uso: desde un notebook de Jupyter o como script ejecutable desde terminal.
+Ofrece tres formas de uso:
+- Desde un notebook de Jupyter
+- Como script ejecutable desde terminal
+- A través de un bot de Telegram privado
 
 ### Construido con
 
@@ -30,22 +33,50 @@ Ofrece dos formas de uso: desde un notebook de Jupyter o como script ejecutable 
 ![Jupyter Badge](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=fff&style=for-the-badge)
 ![OpenAI Badge](https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=fff&style=for-the-badge) 
 ![Notion Badge](https://img.shields.io/badge/Notion-000000?logo=notion&logoColor=fff&style=for-the-badge)
+![Telegram Badge](https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram&logoColor=fff&style=for-the-badge)
 
 ## Descripción
 
 El sistema permite leer un archivo PDF, extraer su contenido textual, enviarlo a GPT para generar un resumen estructurado en formato JSON (título, autor, revista, año, tema, subtema, ideas principales y citas) y registrar toda esa información como una nueva entrada en Notion. 
 
-El contenido se puede registrar como:
-- Propiedades estructuradas (título, año, etc.)
+El contenido se registra como:
+- Propiedades estructuradas (título, año, autor, etc.)
 - Contenido de página con ideas principales y citas textuales
 
 ### Contenido del Repositorio
 
-- [`notion_uploader.ipynb`](/notion_uploader.ipynb): Notebook interactivo para desarrollo y pruebas del flujo.
-- [`notion_uploader.py`](/notion_uploader.py): Script de línea de comandos. Ejecutable con:  
-```bash
-  python notion_uploader.py ruta/al/archivo.pdf
+- [`notion_uploader.ipynb`](/notion_uploader.ipynb): Notebook interactivo para desarrollo y pruebas.
+- [`notion_uploader.py`](/notion_uploader.py): Script de línea de comandos para uso desde terminal.
+- [`bot_uploader.py`](/bot_uploader.py): Bot de Telegram para enviar archivos PDF y registrarlos directamente en Notion.
+- [`requirements.txt`](/requirements.txt): Lista de dependencias necesarias para ejecutar el proyecto.
+
+### Configuración (`keys.py`)
+
+Antes de ejecutar el proyecto, crea un archivo llamado `keys.py` con el siguiente contenido:
+
+```python
+OPENAI_API_KEY = "..."      # Tu clave API de OpenAI
+NOTION_TOKEN = "..."        # Token de integración de Notion
+NOTION_DATABASE_ID = "..."  # ID de la base de datos de Notion
+TELEGRAM_TOKEN = "..."      # Token del bot de Telegram
+USUARIO_AUTORIZADO = "..."  # Tu ID personal de Telegram
 ```
+
+### Uso desde terminal
+
+```bash
+python notion_uploader.py ruta/al/archivo.pdf
+````
+
+### Uso desde Telegram
+
+Crea un bot privado, configura tu `BOT_TOKEN` y tu `USUARIO_AUTORIZADO` en `keys.py`, y ejecuta:
+
+```bash
+python bot_uploader.py
+```
+
+Solo tú podrás interactuar con el bot gracias al control de acceso por ID.
 
 ## Créditos
 

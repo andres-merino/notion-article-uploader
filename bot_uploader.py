@@ -1,7 +1,7 @@
 import os
 import telebot
 from keys import TELEGRAM_TOKEN, USUARIO_AUTORIZADO
-from notion_article_uploader import extraer_texto_desde_pdf, analizar_con_gpt, enviar_a_notion
+from notion_article_uploader import extraer_texto_desde_pdf, analizar_con_gpt, enviar_a_notion, crear_post_linkedin
 
 # Inicializar bot
 bot = telebot.TeleBot(TELEGRAM_TOKEN)
@@ -50,7 +50,9 @@ def handle_document(message):
         texto = extraer_texto_desde_pdf(ruta_pdf)
         json_data = analizar_con_gpt(texto)
         enviar_a_notion(json_data)
+        post_linkedin = crear_post_linkedin(json_data)
         bot.send_message(message.chat.id, "✅ Artículo procesado y enviado a Notion.")
+        bot.send_message(message.chat.id, "🔗 Post de LinkedIn generado:\n\n" + post_linkedin)
     except Exception as e:
         bot.send_message(message.chat.id, f"⚠️ Ocurrió un error: {str(e)}")
 

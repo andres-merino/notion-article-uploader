@@ -24,7 +24,7 @@ def acceso_restringido(func):
 def start(message):
     bot.send_message(
         message.chat.id,
-        "👋 ¡Hola! Envíame un artículo en formato PDF para procesarlo."
+        "👋 ¡Hola! Envíame un artículo en formato PDF para procesarlo (v1.1)."
     )
 
 # Archivos PDF

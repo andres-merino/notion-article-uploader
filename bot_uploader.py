@@ -35,7 +35,7 @@ def handle_document(message):
         bot.reply_to(message, "Por favor, envía un archivo PDF.")
         return
 
-    bot.send_message(message.chat.id, "📥 Descargando y procesando el archivo...")
+    bot.send_message(message.chat.id, "📥 Descargando y procesando el archivo (v1.1)...")
 
     # Descargar el archivo
     file_info = bot.get_file(message.document.file_id)

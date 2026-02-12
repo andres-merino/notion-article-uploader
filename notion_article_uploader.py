@@ -52,7 +52,7 @@ Texto:
     return response.output_parsed
 
 def crear_post_linkedin(articulo):
-    prompt = f"""Crea un post de LinkedIn para compartir un artículo académico. El post debe ser atractivo, profesional y tener un formato similar a este:
+    prompt = f"""Crea un post de LinkedIn para compartir un artículo académico. El post debe ser atractivo, profesional y tener un formato similar a este (no uses muchos adjetivos redundantes o innecesarios, sé directo y claro):
     ---
     📚 ¿Cómo integrar ChatGPT en una clase de programación? 🤖💻
 
@@ -63,8 +63,6 @@ def crear_post_linkedin(articulo):
     2️⃣ 
     3️⃣ 
 
-    Una lectura fundamental para quienes experimentamos con metodologías activas y herramientas de IA en educación.
-
     👉 Accede al artículo completo aquí: DOI
     ---
     
@@ -72,10 +70,7 @@ def crear_post_linkedin(articulo):
     - Título: {articulo.titulo}
     - Autor principal: {articulo.autor_principal}
     - Revista: {articulo.revista}
-    - Año: {articulo.año}
     - DOI: {articulo.DOI}
-    - Tema: {', '.join(articulo.tema)}
-    - Subtema: {', '.join(articulo.subtema)}
     - Ideas principales: {', '.join(articulo.ideas_principales)}
     """
 

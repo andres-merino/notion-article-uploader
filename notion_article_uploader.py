@@ -37,7 +37,7 @@ Extrae la siguiente información del texto de un artículo académico:
 - DOI
 - Tema (un tema como: Educación, Matemática, Ciencia de Datos, etc.)
 - Subtema (un subtema, máximo 2 palabras)
-- Dos ideas principales
+- Tres ideas principales junto con resultados, si contienen resultados cuantitativos, inclúyelos.
 - Tres citas textuales
 
 Texto:

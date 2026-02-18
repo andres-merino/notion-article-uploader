@@ -18,6 +18,7 @@ def extraer_texto_desde_pdf(ruta_pdf):
 class Articulo(BaseModel):
     titulo: str
     autor_principal: str
+    autores: list[str]
     revista: str
     año: int
     DOI: str
@@ -32,6 +33,7 @@ Extrae la siguiente información del texto de un artículo académico:
 
 - Título
 - Autor principal
+- Autores (una lista de todos los autores)
 - Revista
 - Año
 - DOI
@@ -52,26 +54,26 @@ Texto:
     return response.output_parsed
 
 def crear_post_linkedin(articulo):
-    prompt = f"""Crea un post de LinkedIn para compartir un artículo académico. El post debe ser atractivo, profesional y tener un formato similar a este (no uses muchos adjetivos redundantes o innecesarios, sé directo y claro):
+    prompt = f"""Crea un post de LinkedIn para compartir un artículo académico. El post debe ser atractivo, profesional y tener un formato similar a este (no uses adjetivos redundantes o innecesarios, sé directo y claro, el propósito es revelar la importancia del artículo y motivar a la gente a leerlo, no exageres ni uses lenguaje de marketing):
     ---
     📚 ¿Cómo integrar ChatGPT en una clase de programación? 🤖💻
 
-    Te recomiendo el artículo «Título», de autor principal. Presenta...
+    Te recomiendo el artículo «Título», de [autores resumido]. Presenta...
 
     Tres aspectos clave del estudio:
     1️⃣ 
     2️⃣ 
     3️⃣ 
 
-    👉 Accede al artículo completo aquí: DOI
+    👉 Accede al artículo completo aquí: 
     ---
     
     La información del artículo es la siguiente:
     - Título: {articulo.titulo}
-    - Autor principal: {articulo.autor_principal}
-    - Revista: {articulo.revista}
-    - DOI: {articulo.DOI}
+    - Autores: {', '.join(articulo.autores)}
+    - Enlace: {articulo.DOI}
     - Ideas principales: {', '.join(articulo.ideas_principales)}
+    - Citas textuales: {', '.join(articulo.citas_textuales)}
     """
 
     response = client.responses.create(

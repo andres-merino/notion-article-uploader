@@ -23,5 +23,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_APP_USER }}@${{ secrets.SERVER_APP }} -p ${{ secrets.SERVER_APP_PORT }} << 'EOF'
             cd /srv/servicios/notion-article-uploader
             git pull origin main
-            sudo systemctl restart notion_bot.service
+            sudo systemctl restart notion-article-uploader.service
           EOF
